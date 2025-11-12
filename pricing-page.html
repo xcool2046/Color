@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>定价套餐方案</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .gradient-bg {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        .card-hover {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .card-hover:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+        }
+        .popular-badge {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+        }
+        .price-gradient {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 min-h-screen py-8 px-4">
+    <div class="max-w-7xl mx-auto">
+        <!-- Header -->
+        <div class="text-center mb-12">
+            <h1 class="text-5xl font-bold text-gray-900 mb-4">
+                定价方案
+                <span class="block text-3xl font-semibold text-purple-600 mt-2">自动化成交 + 分层承接</span>
+            </h1>
+            <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+                9.9元体验引流，套餐分层承接不同预算客户，自动化交付流程，最大化客单价
+            </p>
+        </div>
+
+        <!-- 定价卡片 -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6 mb-16">
+            <!-- 入门体验版 -->
+            <div class="bg-white rounded-2xl shadow-lg card-hover border border-gray-200 overflow-hidden">
+                <div class="h-1 bg-gradient-to-r from-blue-400 to-blue-600"></div>
+                <div class="p-6">
+                    <h3 class="text-xl font-bold text-gray-900 mb-2">入门体验版</h3>
+                    <div class="flex items-baseline mb-2">
+                        <span class="text-3xl font-bold text-gray-900">¥9.9</span>
+                    </div>
+                    <p class="text-sm text-gray-600 mb-4">个人学习 / 试用引流</p>
+                    <ul class="space-y-2 text-sm text-gray-700 mb-6">
+                        <li class="flex items-start">
+                            <span class="text-green-500 mr-2">✓</span>
+                            代码 Zip 包
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-green-500 mr-2">✓</span>
+                            2-3分钟讲解视频
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-green-500 mr-2">✓</span>
+                            使用说明文档
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-red-500 mr-2">✗</span>
+                            不含修改/答疑
+                        </li>
+                    </ul>
+                    <div class="text-center">
+                        <button class="w-full py-3 px-4 bg-gray-900 text-white rounded-lg font-semibold hover:bg-gray-800 transition-colors">
+                            立即购买
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 标准模板版 -->
+            <div class="bg-white rounded-2xl shadow-lg card-hover border border-gray-200 overflow-hidden relative">
+                <div class="h-1 bg-gradient-to-r from-purple-400 to-purple-600"></div>
+                <div class="p-6">
+                    <h3 class="text-xl font-bold text-gray-900 mb-2">标准模板版</h3>
+                    <div class="flex items-baseline mb-2">
+                        <span class="text-3xl font-bold price-gradient">¥49</span>
+                    </div>
+                    <p class="text-sm text-gray-600 mb-4">可商用 / 基础版</p>
+                    <ul class="space-y-2 text-sm text-gray-700 mb-6">
+                        <li class="flex items-start">
+                            <span class="text-green-500 mr-2">✓</span>
+                            5个常用组件包
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-green-500 mr-2">✓</span>
+                            基础响应式设计
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-green-500 mr-2">✓</span>
+                            1次小修改（配色/字体）
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-green-500 mr-2">✓</span>
+                            Logo/颜色替换文档
+                        </li>
+                    </ul>
+                    <div class="text-center">
+                        <button class="w-full py-3 px-4 bg-gradient-to-r from-purple-600 to-purple-700 text-white rounded-lg font-semibold hover:opacity-90 transition-opacity">
+                            立即购买
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 快速定制版 -->
+            <div class="bg-white rounded-2xl shadow-lg card-hover border-2 border-purple-500 overflow-hidden relative">
+                <div class="popular-badge absolute top-4 right-4 text-white text-xs font-bold px-3 py-1 rounded-full">
+                    热门
+                </div>
+                <div class="h-1 bg-gradient-to-r from-purple-500 to-pink-500"></div>
+                <div class="p-6">
+                    <h3 class="text-xl font-bold text-gray-900 mb-2">快速定制版</h3>
+                    <div class="flex items-baseline mb-2">
+                        <span class="text-3xl font-bold price-gradient">¥199</span>
+                        <span class="text-sm text-gray-600 ml-1">起</span>
+                    </div>
+                    <p class="text-sm text-gray-600 mb-4">1个页面 / 3组件定制</p>
+                    <ul class="space-y-2 text-sm text-gray-700 mb-6">
+                        <li class="flex items-start">
+                            <span class="text-green-500 mr-2">✓</span>
+                            2次修改机会
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-green-500 mr-2">✓</span>
+                            基础 SEO 优化
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-green-500 mr-2">✓</span>
+                            移动端适配
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-green-500 mr-2">✓</span>
+                            简单表单对接
+                        </li>
+                    </ul>
+                    <div class="text-center">
+                        <button class="w-full py-3 px-4 bg-gradient-to-r from-purple-500 to-pink-500 text-white rounded-lg font-semibold hover:opacity-90 transition-opacity">
+                            立即定制
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 进阶定制版 -->
+            <div class="bg-white rounded-2xl shadow-lg card-hover border border-gray-200 overflow-hidden">
+                <div class="h-1 bg-gradient-to-r from-pink-400 to-red-500"></div>
+                <div class="p-6">
+                    <h3 class="text-xl font-bold text-gray-900 mb-2">进阶定制版</h3>
+                    <div class="flex items-baseline mb-2">
+                        <span class="text-3xl font-bold price-gradient">¥499</span>
+                        <span class="text-sm text-gray-600 ml-1">起</span>
+                    </div>
+                    <p class="text-sm text-gray-600 mb-4">完整落地页 / 轻后端</p>
+                    <ul class="space-y-2 text-sm text-gray-700 mb-6">
+                        <li class="flex items-start">
+                            <span class="text-green-500 mr-2">✓</span>
+                            完整落地页/活动页
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-green-500 mr-2">✓</span>
+                            轻动画/交互效果
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-green-500 mr-2">✓</span>
+                            表单 + 轻量后端
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-green-500 mr-2">✓</span>
+                            Vercel/Netlify部署
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-green-500 mr-2">✓</span>
+                            3次修改 + 预览链接
+                        </li>
+                    </ul>
+                    <div class="text-center">
+                        <button class="w-full py-3 px-4 bg-gradient-to-r from-pink-500 to-red-500 text-white rounded-lg font-semibold hover:opacity-90 transition-opacity">
+                            立即定制
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 商务定制版 -->
+            <div class="bg-gray-900 rounded-2xl shadow-lg card-hover border border-gray-800 overflow-hidden text-white">
+                <div class="h-1 bg-gradient-to-r from-yellow-400 to-orange-500"></div>
+                <div class="p-6">
+                    <h3 class="text-xl font-bold mb-2">商务定制版</h3>
+                    <div class="flex items-baseline mb-2">
+                        <span class="text-3xl font-bold">¥1499</span>
+                        <span class="text-sm text-gray-400 ml-1">+</span>
+                    </div>
+                    <p class="text-sm text-gray-300 mb-4">企业级 / 原创设计</p>
+                    <ul class="space-y-2 text-sm text-gray-200 mb-6">
+                        <li class="flex items-start">
+                            <span class="text-yellow-400 mr-2">★</span>
+                            原创版式设计
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-yellow-400 mr-2">★</span>
+                            多语言支持
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-yellow-400 mr-2">★</span>
+                            数据接口对接
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-yellow-400 mr-2">★</span>
+                            合同/发票支持
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-yellow-400 mr-2">★</span>
+                            优先支持服务
+                        </li>
+                    </ul>
+                    <div class="text-center">
+                        <button class="w-full py-3 px-4 bg-gradient-to-r from-yellow-400 to-orange-500 text-gray-900 rounded-lg font-semibold hover:opacity-90 transition-opacity">
+                            商务咨询
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 加价项 -->
+        <div class="bg-white rounded-2xl shadow-lg p-8 mb-12">
+            <h2 class="text-3xl font-bold text-gray-900 mb-6 text-center">可选加价项</h2>
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                <div class="bg-gray-50 p-4 rounded-lg text-center">
+                    <div class="text-2xl font-bold text-purple-600">¥50</div>
+                    <div class="text-sm text-gray-700">24h加急交付</div>
+                </div>
+                <div class="bg-gray-50 p-4 rounded-lg text-center">
+                    <div class="text-2xl font-bold text-purple-600">¥30</div>
+                    <div class="text-sm text-gray-700">动效增强</div>
+                </div>
+                <div class="bg-gray-50 p-4 rounded-lg text-center">
+                    <div class="text-2xl font-bold text-purple-600">¥99</div>
+                    <div class="text-sm text-gray-700">A/B测试变体</div>
+                </div>
+                <div class="bg-gray-50 p-4 rounded-lg text-center">
+                    <div class="text-2xl font-bold text-purple-600">¥99</div>
+                    <div class="text-sm text-gray-700">托管维护1月</div>
+                </div>
+                <div class="bg-gray-50 p-4 rounded-lg text-center">
+                    <div class="text-2xl font-bold text-purple-600">¥59</div>
+                    <div class="text-sm text-gray-700">30分钟代码讲解</div>
+                </div>
+                <div class="bg-gray-50 p-4 rounded-lg text-center">
+                    <div class="text-2xl font-bold text-purple-600">¥20</div>
+                    <div class="text-sm text-gray-700">多语言拓展</div>
+                </div>
+                <div class="bg-gray-50 p-4 rounded-lg text-center">
+                    <div class="text-2xl font-bold text-purple-600">¥39</div>
+                    <div class="text-sm text-gray-700">图表/可视化</div>
+                </div>
+                <div class="bg-gray-50 p-4 rounded-lg text-center">
+                    <div class="text-2xl font-bold text-purple-600">¥49</div>
+                    <div class="text-sm text-gray-700">第三方API对接</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 授权分级 -->
+        <div class="bg-white rounded-2xl shadow-lg p-8 mb-12">
+            <h2 class="text-3xl font-bold text-gray-900 mb-6 text-center">授权分级</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="text-center p-6 bg-gray-50 rounded-lg">
+                    <h3 class="text-lg font-bold text-gray-900 mb-2">学习版</h3>
+                    <p class="text-sm text-gray-700">仅个人学习，不得商用/转售/二次分发</p>
+                    <div class="text-2xl font-bold text-blue-600 mt-2">¥9.9</div>
+                </div>
+                <div class="text-center p-6 bg-gray-50 rounded-lg border-2 border-purple-500">
+                    <h3 class="text-lg font-bold text-gray-900 mb-2">普通商用</h3>
+                    <p class="text-sm text-gray-700">可用于商业项目，不得转售模板本身</p>
+                    <div class="text-2xl font-bold text-purple-600 mt-2">默认包含</div>
+                </div>
+                <div class="text-center p-6 bg-gray-50 rounded-lg">
+                    <h3 class="text-lg font-bold text-gray-900 mb-2">独家/排他</h3>
+                    <p class="text-sm text-gray-700">只给你一家使用，源码不再售卖</p>
+                    <div class="text-2xl font-bold text-yellow-600 mt-2">5倍起</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 快速行动指南 -->
+        <div class="gradient-bg rounded-2xl shadow-lg p-8 text-white">
+            <h2 class="text-3xl font-bold mb-6 text-center">快速行动指南</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-3">🎯 视频结尾话术</h3>
+                    <div class="bg-white bg-opacity-20 rounded-lg p-4 backdrop-blur-sm">
+                        <p class="text-sm">"代码已打包，体验版 <span class="font-bold">9块9</span>，在主页链接/置顶评论。要定制点我头像私信<span class="font-bold">‘定制’</span>两个字，我会发套餐页给你～"</p>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold mb-3">💬 私信自动回复</h3>
+                    <div class="bg-white bg-opacity-20 rounded-lg p-4 backdrop-blur-sm">
+                        <p class="text-sm">这是套餐页：<span class="font-bold">9.9体验｜49模板｜199快速｜499进阶｜商务定制</span>。需要商用/加急可在下单页勾选。下单后自动发货，有任何问题备注需求即可～</p>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold mb-3">📝 下单表单5必填</h3>
+                    <div class="bg-white bg-opacity-20 rounded-lg p-4 backdrop-blur-sm">
+                        <ul class="text-sm space-y-1">
+                            <li>• 用途（学习/商用）</li>
+                            <li>• 风格参考链接</li>
+                            <li>• 品牌主色/Logo</li>
+                            <li>• 是否需要表单收集</li>
+                            <li>• 期望交付时间</li>
+                        </ul>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold mb-3">⚠️ 风险边界</h3>
+                    <div class="bg-white bg-opacity-20 rounded-lg p-4 backdrop-blur-sm">
+                        <ul class="text-sm space-y-1">
+                            <li>• 修改次数写死（0/1/2/3次）</li>
+                            <li>• 需求冻结：仅允许等价替换</li>
+                            <li>• 体验/模板购买后不退款</li>
+                            <li>• 授权写入LICENSE.txt</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-8 text-center bg-yellow-400 bg-opacity-20 rounded-lg p-6">
+                <h3 class="text-xl font-bold text-yellow-200 mb-2">今天就能做的一步</h3>
+                <p class="text-yellow-100">把现有3个作品按上面5个字段写成套餐图，今晚发视频置顶链接，明天看私信关键词“定制”数量验证漏斗</p>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="text-center mt-12 text-gray-600">
+            <p class="text-sm">核心策略：9.9元体验引流 → 分层套餐筛选 → 可选加价提升客单 → 授权分级防纠纷 → 自动化流程</p>
+        </div>
+    </div>
+</body>
+</html>

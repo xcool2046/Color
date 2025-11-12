@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gemini 3 吐槽推文</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #16213e 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 700px;
+        }
+
+        .tweet-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            border-radius: 24px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 40px;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .tweet-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #00dbde, #fc00ff, #00dbde);
+            background-size: 200% 200%;
+            animation: gradient 3s ease infinite;
+        }
+
+        @keyframes gradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+
+        .avatar {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 24px;
+            font-weight: bold;
+            margin-right: 15px;
+            flex-shrink: 0;
+        }
+
+        .user-info h2 {
+            color: #ffffff;
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+
+        .user-info p {
+            color: #6e767d;
+            font-size: 16px;
+        }
+
+        .icon {
+            margin-left: auto;
+            width: 24px;
+            height: 24px;
+        }
+
+        .tweet-content {
+            margin-bottom: 30px;
+        }
+
+        .main-tweet {
+            color: #e7e9ea;
+            font-size: 24px;
+            line-height: 1.6;
+            font-weight: 500;
+            margin-bottom: 25px;
+        }
+
+        .dialogue {
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 16px;
+            padding: 20px;
+            margin-bottom: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .dialogue-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 15px;
+            animation: fadeIn 0.6s ease forwards;
+            opacity: 0;
+        }
+
+        .dialogue-item:nth-child(1) { animation-delay: 0.1s; }
+        .dialogue-item:nth-child(2) { animation-delay: 0.3s; }
+        .dialogue-item:nth-child(3) { animation-delay: 0.5s; }
+        .dialogue-item:nth-child(4) { animation-delay: 0.7s; }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+        }
+
+        .role {
+            font-weight: 700;
+            color: #1d9bf0;
+            margin-right: 10px;
+            flex-shrink: 0;
+            min-width: 70px;
+        }
+
+        .text {
+            color: #e7e9ea;
+            font-size: 18px;
+            line-height: 1.5;
+        }
+
+        .final-statement {
+            color: #6e767d;
+            font-size: 20px;
+            font-weight: 500;
+            text-align: center;
+            margin-top: 25px;
+            padding-top: 25px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .emoji {
+            font-size: 24px;
+            margin-left: 8px;
+        }
+
+        .footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .date {
+            color: #6e767d;
+            font-size: 14px;
+        }
+
+        .stats {
+            display: flex;
+            gap: 30px;
+        }
+
+        .stat {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: #6e767d;
+            font-size: 14px;
+        }
+
+        .stat svg {
+            width: 18px;
+            height: 18px;
+        }
+
+        /* 响应式设计 */
+        @media (max-width: 640px) {
+            .tweet-card {
+                padding: 30px 20px;
+                border-radius: 20px;
+            }
+
+            .main-tweet {
+                font-size: 20px;
+            }
+
+            .text {
+                font-size: 16px;
+            }
+        }
+
+        /* 截图优化 */
+        @media screen and (min-width: 1200px) {
+            .container {
+                max-width: 800px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="tweet-card">
+            <!-- 用户头像和昵称 -->
+            <div class="header">
+                <div class="avatar">你</div>
+                <div class="user-info">
+                    <h2>你的名字</h2>
+                    <p>@yourusername</p>
+                </div>
+                <svg class="icon" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 12a.75.75 0 11-1.5 0 .75.75 0 011.5 0zM12.75 12a.75.75 0 11-1.5 0 .75.75 0 011.5 0zM18.75 12a.75.75 0 11-1.5 0 .75.75 0 011.5 0z"></path>
+                </svg>
+            </div>
+
+            <!-- 主要推文内容 -->
+            <div class="tweet-content">
+                <p class="main-tweet">
+                    我和 Gemini 3 的关系就像一场无限延迟的约会:
+                </p>
+
+                <div class="dialogue">
+                    <div class="dialogue-item">
+                        <span class="role">Google:</span>
+                        <span class="text">"马上就到!"</span>
+                    </div>
+                    <div class="dialogue-item">
+                        <span class="role">我:</span>
+                        <span class="text">[3个月后]"...?"</span>
+                    </div>
+                    <div class="dialogue-item">
+                        <span class="role">Google:</span>
+                        <span class="text">"路上堵车!"</span>
+                    </div>
+                    <div class="dialogue-item">
+                        <span class="role">其他AI:</span>
+                        <span class="text">[已经结婚生子]</span>
+                    </div>
+                </div>
+
+                <p class="final-statement">
+                    累了,毁灭吧<span class="emoji">😑</span>
+                </p>
+            </div>
+
+            <!-- 底部信息 -->
+            <div class="footer">
+                <span class="date">上午 11:12 · 2025年11月12日</span>
+                <div class="stats">
+                    <div class="stat">
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 20.25c4.97 0 9-3.694 9-8.25 0-3.37-2.23-6.25-5.5-7.5-.88-.25-1.8-.38-2.75-.38s-1.87.13-2.75.38c-3.27 1.25-5.5 4.13-5.5 7.5 0 4.556 4.03 8.25 9 8.25z"></path>
+                        </svg>
+                        <span>1.2K</span>
+                    </div>
+                    <div class="stat">
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M7.5 8.25h9m-9 3H12m-9 3h9m-9 3h9M4.5 4.5v15a1.5 1.5 0 001.5 1.5h15a1.5 1.5 0 001.5-1.5v-15a1.5 1.5 0 00-1.5-1.5h-15A1.5 1.5 0 004.5 4.5z"></path>
+                        </svg>
+                        <span>856</span>
+                    </div>
+                    <div class="stat">
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M7.5 12L12 7.5m0 0L16.5 12M12 7.5V21"></path>
+                        </svg>
+                        <span>234</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
